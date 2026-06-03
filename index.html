@@ -55,7 +55,9 @@
         .logo {
             color: white;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            text-decoration: none;
+            white-space: nowrap;
         }
 
         .logo span {
@@ -535,18 +537,306 @@
             .section { margin-bottom: 75px; }
             .glass-card { height: 360px; }
         }
+    
+
+        /* ajustes gerais para todos os dispositivos */
+        img, iframe { max-width: 100%; }
+
+        .menu-toggle {
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 12px;
+            background: rgba(255,255,255,0.08);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu-toggle span {
+            width: 21px;
+            height: 2px;
+            border-radius: 99px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .menu-toggle.active span:nth-child(2) { opacity: 0; }
+        .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .video-note {
+            margin-top: 18px;
+            color: var(--muted);
+            text-align: center;
+            line-height: 1.7;
+        }
+
+        .glass-card.flipped .card-inner { transform: rotateY(180deg); }
+
+        @media (min-width: 1200px) {
+            .navbar { padding-inline: 10%; }
+            .hero-content { max-width: 980px; }
+            .grid-container, .stats-grid, .video-grid, .solution-grid { gap: 32px; }
+        }
+
+        @media (max-width: 1100px) {
+            .navbar { padding: 14px 5%; }
+            .nav-links { gap: 14px; }
+            .nav-links a { font-size: 0.88rem; }
+            .ewaste-box { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 820px) {
+            .navbar { padding: 12px 18px; }
+
+            .menu-toggle { display: flex; }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 10px);
+                left: 18px;
+                right: 18px;
+                display: none;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(17, 24, 39, 0.97);
+                border: 1px solid rgba(255,255,255,0.12);
+                border-radius: 18px;
+                padding: 10px;
+                box-shadow: 0 16px 35px rgba(0,0,0,0.25);
+            }
+
+            .nav-links.open { display: flex; }
+
+            .nav-links a {
+                display: block;
+                padding: 13px 14px;
+                border-radius: 12px;
+                font-size: 0.98rem;
+            }
+
+            .nav-links a:hover { background: rgba(34,197,94,0.12); }
+
+            .hero {
+                min-height: 88vh;
+                padding: 95px 18px 45px;
+                background-position: center;
+            }
+
+            .hero-content h1 { font-size: clamp(2.25rem, 12vw, 4rem); }
+            .hero-content p { font-size: 1rem; line-height: 1.65; }
+            .btn-main { width: min(100%, 320px); padding: 14px 24px; }
+
+            .main-content { padding: 62px 16px 10px; }
+            .section { margin-bottom: 72px; }
+            .section-title { margin-bottom: 14px; }
+            .section-subtitle { margin-bottom: 32px; font-size: 0.98rem; }
+
+            .intro-box, .info-card, .stat-card, .solution-card, .calculator, .checklist-box, .sources, .ewaste-text, .ewaste-list {
+                padding: 24px;
+                border-radius: 22px;
+            }
+
+            .dark-section { padding: 65px 16px; margin-bottom: 72px; }
+            .ewaste-text h2 { font-size: 2rem; }
+            .glass-card { height: 300px; cursor: pointer; }
+            .glass-card:hover .card-inner { transform: none; }
+            .glass-card.flipped .card-inner { transform: rotateY(180deg); }
+
+            .recycle-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+            .bin { padding: 28px 12px; font-size: 1rem; }
+            .check-item { align-items: flex-start; font-size: 0.98rem; line-height: 1.45; }
+        }
+
+        @media (max-width: 480px) {
+            .navbar { padding-inline: 14px; }
+            .hero { min-height: 82vh; }
+            .hero-content h1 { line-height: 1.08; }
+            .grid-container, .stats-grid, .video-grid, .solution-grid { grid-template-columns: 1fr; gap: 20px; }
+            .stat-number { font-size: 2.2rem; }
+            .glass-card { height: 330px; }
+            .card-front, .card-back { padding: 22px; }
+            .card-icon { font-size: 3.2rem; }
+            .calculator input, .calculator button { padding: 14px; }
+            .modern-footer { padding: 34px 18px; }
+        }
+
+        @media (hover: none) and (pointer: coarse) {
+            .info-card:hover, .stat-card:hover, .solution-card:hover, .bin:hover, .btn-main:hover { transform: none; }
+        }
+
+
+        /* quiz ambiental */
+        .quiz-box {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .quiz-top {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .quiz-score,
+        .quiz-trees {
+            background: var(--mint);
+            color: var(--green-dark);
+            padding: 14px 18px;
+            border-radius: 999px;
+            font-weight: 800;
+        }
+
+        .question-card {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 22px;
+            padding: 28px;
+        }
+
+        #quizQuestion {
+            color: var(--green-dark);
+            font-size: 1.35rem;
+            line-height: 1.5;
+            margin-bottom: 22px;
+        }
+
+        .answers-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .answer-btn {
+            border: 2px solid #d1d5db;
+            background: white;
+            color: var(--text);
+            padding: 16px;
+            border-radius: 16px;
+            text-align: left;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .answer-btn:hover {
+            border-color: var(--green);
+            transform: translateY(-2px);
+        }
+
+        .answer-btn.correct {
+            background: #dcfce7;
+            border-color: var(--green);
+            color: var(--green-dark);
+        }
+
+        .answer-btn.wrong {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #7f1d1d;
+        }
+
+        #quizFeedback {
+            margin-top: 20px;
+            padding: 16px;
+            border-radius: 16px;
+            background: var(--mint);
+            color: var(--green-dark);
+            font-weight: 700;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .quiz-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            margin-top: 22px;
+        }
+
+        .quiz-actions button {
+            border: none;
+            background: var(--green);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .quiz-actions button:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        .forest {
+            margin-top: 28px;
+            min-height: 90px;
+            background: linear-gradient(180deg, #ecfdf5, #dcfce7);
+            border: 2px dashed #86efac;
+            border-radius: 22px;
+            padding: 18px;
+            display: flex;
+            align-items: end;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tree {
+            font-size: 2.2rem;
+            animation: growTree 0.45s ease both;
+        }
+
+        @keyframes growTree {
+            from { transform: scale(0.2) translateY(16px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+
+
+        @media(max-width: 700px) {
+            .quiz-box { padding: 24px; }
+            .answers-grid { grid-template-columns: 1fr; }
+            #quizQuestion { font-size: 1.15rem; }
+            .quiz-score, .quiz-trees { width: 100%; text-align: center; border-radius: 18px; }
+            .quiz-actions button { width: 100%; }
+            .forest { justify-content: center; }
+        }
+
     </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <div class="logo">Uso <span>Consciente</span></div>
-        <ul class="nav-links">
+        <a href="#" class="logo" aria-label="Ir para o início">Uso <span>Consciente</span></a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-links" id="navLinks">
             <li><a href="#intro">Introdução</a></li>
             <li><a href="#mundial">Dados Mundiais</a></li>
             <li><a href="#obsolescencia">Obsolescência</a></li>
             <li><a href="#videos">Vídeos</a></li>
             <li><a href="#checklist">Checklist</a></li>
+            <li><a href="#quiz">Quiz</a></li>
         </ul>
     </nav>
 
@@ -806,6 +1096,32 @@
             </div>
         </section>
 
+
+        <section id="quiz" class="section">
+            <h2 class="section-title">Quiz Ambiental</h2>
+            <p class="section-subtitle">Responda às perguntas, ganhe pontos e plante uma árvore virtual a cada acerto.</p>
+
+            <div class="quiz-box">
+                <div class="quiz-top">
+                    <div class="quiz-score">Pontuação: <span id="score">0</span></div>
+                    <div class="quiz-trees">Árvores plantadas: <span id="treeCount">0</span> 🌳</div>
+                </div>
+
+                <div class="question-card">
+                    <h3 id="quizQuestion">Carregando pergunta...</h3>
+                    <div class="answers-grid" id="answersGrid"></div>
+                    <p id="quizFeedback"></p>
+
+                    <div class="quiz-actions">
+                        <button type="button" onclick="nextQuestion()" id="nextBtn">Próxima pergunta</button>
+                        <button type="button" onclick="restartQuiz()">Reiniciar quiz</button>
+                    </div>
+                </div>
+
+                <div class="forest" id="forest" aria-label="Floresta virtual do quiz"></div>
+            </div>
+        </section>
+
         <section class="section">
             <h2 class="section-title">Fontes de Pesquisa</h2>
             <div class="sources">
@@ -821,6 +1137,32 @@
     </footer>
 
     <script>
+
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            const aberto = navLinks.classList.toggle('open');
+            menuToggle.classList.toggle('active', aberto);
+            menuToggle.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('click', () => {
+                if (window.matchMedia('(max-width: 820px)').matches) {
+                    card.classList.toggle('flipped');
+                }
+            });
+        });
+
         function calcularAgua() {
             const minutos = Number(document.getElementById('minutosBanho').value);
             const resultado = document.getElementById('resultadoAgua');
@@ -852,6 +1194,135 @@
             progressBar.style.width = porcentagem + '%';
             progressText.innerText = porcentagem + '% concluído';
         }
+
+        const quizQuestions = [
+            {
+                question: 'O que é consumo consciente?',
+                answers: ['Comprar tudo em promoção', 'Pensar no impacto antes de comprar, usar e descartar', 'Trocar de celular todo ano', 'Usar mais produtos descartáveis'],
+                correct: 1,
+                explanation: 'Consumo consciente é fazer escolhas pensando no meio ambiente, na necessidade real e no descarte correto.'
+            },
+            {
+                question: 'Qual cor da lixeira é usada para papel?',
+                answers: ['Azul', 'Vermelha', 'Verde', 'Amarela'],
+                correct: 0,
+                explanation: 'A lixeira azul é usada para papel e papelão.'
+            },
+            {
+                question: 'O que é obsolescência programada?',
+                answers: ['Reciclagem de eletrônicos', 'Quando um produto é feito para durar para sempre', 'Quando um produto se torna ultrapassado ou tem vida útil reduzida', 'Economia de água'],
+                correct: 2,
+                explanation: 'Ela acontece quando produtos ficam ultrapassados rapidamente ou são difíceis de consertar, incentivando novas compras.'
+            },
+            {
+                question: 'Qual atitude ajuda a reduzir lixo eletrônico?',
+                answers: ['Trocar aparelho sem necessidade', 'Descartar celular no lixo comum', 'Consertar, doar ou levar a pontos de coleta', 'Guardar pilhas em qualquer lugar'],
+                correct: 2,
+                explanation: 'Reparar, doar e descartar corretamente evita poluição e reaproveita materiais.'
+            },
+            {
+                question: 'Por que economizar energia ajuda o planeta?',
+                answers: ['Porque aumenta o desperdício', 'Porque reduz impactos ambientais e gastos', 'Porque impede reciclagem', 'Porque usa mais recursos naturais'],
+                correct: 1,
+                explanation: 'Economizar energia diminui gastos e reduz impactos ligados à produção elétrica.'
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let trees = 0;
+        let answered = false;
+
+        function loadQuestion() {
+            answered = false;
+            const questionData = quizQuestions[currentQuestion];
+            const quizQuestion = document.getElementById('quizQuestion');
+            const answersGrid = document.getElementById('answersGrid');
+            const feedback = document.getElementById('quizFeedback');
+
+            quizQuestion.innerText = `${currentQuestion + 1}. ${questionData.question}`;
+            answersGrid.innerHTML = '';
+            feedback.style.display = 'none';
+            feedback.innerHTML = '';
+
+            questionData.answers.forEach((answer, index) => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'answer-btn';
+                button.innerText = answer;
+                button.onclick = () => checkAnswer(index, button);
+                answersGrid.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selectedIndex, selectedButton) {
+            if (answered) return;
+            answered = true;
+
+            const questionData = quizQuestions[currentQuestion];
+            const buttons = document.querySelectorAll('.answer-btn');
+            const feedback = document.getElementById('quizFeedback');
+
+            buttons.forEach((button, index) => {
+                button.disabled = true;
+                if (index === questionData.correct) button.classList.add('correct');
+            });
+
+            feedback.style.display = 'block';
+
+            if (selectedIndex === questionData.correct) {
+                score += 10;
+                trees += 1;
+                document.getElementById('score').innerText = score;
+                document.getElementById('treeCount').innerText = trees;
+                plantTree();
+                feedback.innerHTML = `✅ Acertou! +10 pontos. ${questionData.explanation}`;
+            } else {
+                selectedButton.classList.add('wrong');
+                feedback.innerHTML = `❌ Quase! ${questionData.explanation}`;
+            }
+        }
+
+        function plantTree() {
+            const forest = document.getElementById('forest');
+            const tree = document.createElement('span');
+            tree.className = 'tree';
+            tree.innerText = ['🌱', '🌿', '🌳'][Math.min(trees - 1, 2)] || '🌳';
+            forest.appendChild(tree);
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion >= quizQuestions.length) {
+                const quizQuestion = document.getElementById('quizQuestion');
+                const answersGrid = document.getElementById('answersGrid');
+                const feedback = document.getElementById('quizFeedback');
+
+                quizQuestion.innerText = 'Quiz finalizado!';
+                answersGrid.innerHTML = '';
+                feedback.style.display = 'block';
+                feedback.innerHTML = `Você fez <strong>${score} pontos</strong> e plantou <strong>${trees} árvore(s)</strong>. Continue praticando atitudes sustentáveis no dia a dia!`;
+                currentQuestion = quizQuestions.length - 1;
+                return;
+            }
+
+            loadQuestion();
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            trees = 0;
+            answered = false;
+            document.getElementById('score').innerText = score;
+            document.getElementById('treeCount').innerText = trees;
+            document.getElementById('forest').innerHTML = '';
+            loadQuestion();
+        }
+
+        loadQuestion();
+
     </script>
 </body>
 </html>
