@@ -1113,7 +1113,7 @@
                     <p id="quizFeedback"></p>
 
                     <div class="quiz-actions">
-                        <button type="button" onclick="nextQuestion()" id="nextBtn">Próxima pergunta</button>
+                        
                         <button type="button" onclick="restartQuiz()">Reiniciar quiz</button>
                     </div>
                 </div>
@@ -1273,14 +1273,39 @@
             if (selectedIndex === questionData.correct) {
                 score += 10;
                 trees += 1;
+
                 document.getElementById('score').innerText = score;
                 document.getElementById('treeCount').innerText = trees;
+
                 plantTree();
+
                 feedback.innerHTML = `✅ Acertou! +10 pontos. ${questionData.explanation}`;
             } else {
                 selectedButton.classList.add('wrong');
                 feedback.innerHTML = `❌ Quase! ${questionData.explanation}`;
             }
+
+            setTimeout(() => {
+                currentQuestion++;
+
+                if (currentQuestion >= quizQuestions.length) {
+                    const quizQuestion = document.getElementById('quizQuestion');
+                    const answersGrid = document.getElementById('answersGrid');
+
+                    let titulo;
+
+                    if (score <= 20) titulo = '🌱 Iniciante Verde';
+                    else if (score <= 40) titulo = '🌿 Guardião da Natureza';
+                    else titulo = '🌳 Herói do Planeta';
+
+                    quizQuestion.innerHTML = `${titulo}<br><br>Você fez <strong>${score} pontos</strong><br>Plantou <strong>${trees} árvores</strong> 🌳`;
+                    answersGrid.innerHTML = '';
+                    feedback.style.display = 'block';
+                    return;
+                }
+
+                loadQuestion();
+            }, 1500);
         }
 
         function plantTree() {
