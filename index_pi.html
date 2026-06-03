@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Uso Consciente e Sustentabilidade</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --green-dark: #14532d;
+            --green: #16a34a;
+            --green-light: #22c55e;
+            --mint: #f0fdf4;
+            --text: #1f2937;
+            --muted: #4b5563;
+            --white: #ffffff;
+            --dark: #111827;
+            --soft: #f4f7f5;
+            --shadow: 0 14px 35px rgba(0, 0, 0, 0.10);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--soft);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(17, 24, 39, 0.88);
+            backdrop-filter: blur(12px);
+            padding: 14px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+
+        .logo {
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo span {
+            color: var(--green-light);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-light);
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.58), rgba(0,0,0,0.65)),
+                        url('https://images.unsplash.com/photo-1497436072909-f5e4be8c8e9d?q=80&w=1600') center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 110px 20px 50px;
+        }
+
+        .hero-content {
+            color: white;
+            max-width: 900px;
+            animation: surgir 1s ease forwards;
+        }
+
+        @keyframes surgir {
+            from { opacity: 0; transform: translateY(35px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.7rem, 8vw, 5.6rem);
+            line-height: 1.05;
+            margin-bottom: 22px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 34px;
+            opacity: 0.95;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            background: var(--green-light);
+            color: white;
+            font-weight: 700;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(34,197,94,0.35);
+        }
+
+        .btn-main:hover {
+            background: var(--green);
+            transform: translateY(-4px);
+        }
+
+        .main-content {
+            padding: 90px 20px 20px;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            margin-bottom: 100px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 18px;
+            color: var(--green-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 48px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .intro-box {
+            background: white;
+            padding: 46px;
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+            line-height: 1.9;
+        }
+
+        .intro-box p + p {
+            margin-top: 18px;
+        }
+
+        .grid-container,
+        .stats-grid,
+        .video-grid,
+        .solution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        .info-card,
+        .stat-card,
+        .solution-card {
+            background: white;
+            border-radius: 24px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .info-card:hover,
+        .stat-card:hover,
+        .solution-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .info-card h3,
+        .solution-card h3 {
+            color: var(--green);
+            margin-bottom: 14px;
+            font-size: 1.35rem;
+        }
+
+        .info-card p,
+        .solution-card p,
+        .stat-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .stat-number {
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .glass-card {
+            perspective: 1000px;
+            height: 320px;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .glass-card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            backface-visibility: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .card-front {
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #15803d, #22c55e);
+            color: white;
+            transform: rotateY(180deg);
+        }
+
+        .card-back ul {
+            list-style: none;
+            line-height: 2;
+        }
+
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .dark-section {
+            max-width: 100%;
+            background: linear-gradient(135deg, #052e16, #111827);
+            padding: 90px 20px;
+            color: white;
+            margin-bottom: 100px;
+        }
+
+        .dark-section .section-title,
+        .dark-section .section-subtitle {
+            color: white;
+        }
+
+        .ewaste-box {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .ewaste-text {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 28px;
+            padding: 38px;
+            backdrop-filter: blur(10px);
+        }
+
+        .ewaste-text h2 {
+            font-size: 2.4rem;
+            margin-bottom: 20px;
+        }
+
+        .ewaste-text p {
+            line-height: 1.9;
+            margin-bottom: 16px;
+            opacity: 0.94;
+        }
+
+        .ewaste-list {
+            background: white;
+            color: var(--text);
+            border-radius: 28px;
+            padding: 34px;
+            box-shadow: var(--shadow);
+        }
+
+        .ewaste-list h3 {
+            color: var(--green-dark);
+            margin-bottom: 16px;
+        }
+
+        .ewaste-list li {
+            margin-bottom: 14px;
+            line-height: 1.7;
+        }
+
+        .recycle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+        }
+
+        .bin {
+            padding: 45px 20px;
+            border-radius: 20px;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .bin:hover { transform: scale(1.05); }
+        .blue { background: #2563eb; }
+        .red { background: #dc2626; }
+        .yellow { background: #eab308; color: #111827; }
+        .green { background: #16a34a; }
+        .orange { background: #f97316; }
+        .purple { background: #7c3aed; }
+
+        .calculator,
+        .checklist-box {
+            max-width: 760px;
+            margin: auto;
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
+
+        .calculator label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+            color: var(--green-dark);
+        }
+
+        .calculator input {
+            width: 100%;
+            padding: 16px;
+            border: 2px solid #d1d5db;
+            border-radius: 16px;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            outline: none;
+        }
+
+        .calculator input:focus {
+            border-color: var(--green);
+        }
+
+        .calculator button {
+            width: 100%;
+            border: none;
+            background: var(--green);
+            color: white;
+            padding: 16px;
+            border-radius: 16px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .calculator button:hover {
+            background: var(--green-dark);
+        }
+
+        #resultadoAgua,
+        #resultadoEnergia {
+            margin-top: 18px;
+            background: var(--mint);
+            border-radius: 16px;
+            padding: 18px;
+            color: var(--green-dark);
+            font-weight: 600;
+            line-height: 1.7;
+            display: none;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 18px 0;
+            font-size: 1.05rem;
+            border-bottom: 1px solid #e5e7eb;
+            cursor: pointer;
+        }
+
+        .check-item:last-child { border-bottom: none; }
+
+        .check-item input {
+            width: 22px;
+            height: 22px;
+            accent-color: var(--green);
+            cursor: pointer;
+        }
+
+        .check-item input:checked + span {
+            text-decoration: line-through;
+            color: var(--green);
+            opacity: 0.75;
+        }
+
+        .progress-area {
+            margin-top: 25px;
+            background: #e5e7eb;
+            border-radius: 999px;
+            height: 18px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #16a34a, #22c55e);
+            transition: 0.4s;
+        }
+
+        #progressText {
+            text-align: center;
+            margin-top: 12px;
+            font-weight: 700;
+            color: var(--green-dark);
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: 0;
+            display: block;
+        }
+
+        .video-card div {
+            padding: 20px;
+        }
+
+        .video-card h3 {
+            color: var(--green-dark);
+            margin-bottom: 8px;
+        }
+
+        .video-card p {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .sources {
+            background: white;
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            line-height: 1.9;
+            color: var(--muted);
+        }
+
+        .sources strong {
+            color: var(--green-dark);
+        }
+
+        .modern-footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 42px 20px;
+        }
+
+        .modern-footer span {
+            color: var(--green-light);
+            font-weight: 700;
+        }
+
+        .sub {
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        @media(max-width: 900px) {
+            .nav-links { display: none; }
+            .ewaste-box { grid-template-columns: 1fr; }
+            .intro-box,
+            .calculator,
+            .checklist-box { padding: 28px; }
+        }
+
+        @media(max-width: 600px) {
+            .hero-content p { font-size: 1rem; }
+            .main-content { padding-top: 60px; }
+            .section { margin-bottom: 75px; }
+            .glass-card { height: 360px; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">Uso <span>Consciente</span></div>
+        <ul class="nav-links">
+            <li><a href="#intro">Introdução</a></li>
+            <li><a href="#mundial">Dados Mundiais</a></li>
+            <li><a href="#obsolescencia">Obsolescência</a></li>
+            <li><a href="#videos">Vídeos</a></li>
+            <li><a href="#checklist">Checklist</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Uso Consciente</h1>
+            <p>O futuro do planeta começa nas escolhas que fazemos hoje: consumir menos, reutilizar mais e descartar corretamente.</p>
+            <a href="#intro" class="btn-main">Começar Agora</a>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section id="intro" class="section">
+            <h2 class="section-title">Por que falar sobre consumo consciente?</h2>
+            <p class="section-subtitle">O consumo consciente é uma forma de pensar antes de comprar, usar e descartar. Ele envolve economia de água, energia, reciclagem, responsabilidade social e cuidado com os recursos naturais.</p>
+
+            <div class="intro-box">
+                <p>Todos os dias, milhões de pessoas consomem produtos, alimentos, energia e água. O problema começa quando esse consumo acontece sem planejamento, gerando desperdício, poluição e aumento da produção de lixo.</p>
+                <p>Consumir de forma consciente não significa parar de comprar tudo, mas sim fazer escolhas melhores: preferir produtos duráveis, evitar descartáveis, reaproveitar materiais, separar resíduos e valorizar empresas que respeitam o meio ambiente.</p>
+                <p>Essa atitude também ajuda financeiramente, já que economizar energia, água e evitar compras desnecessárias reduz gastos no dia a dia.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Diagnóstico Ambiental</h2>
+            <p class="section-subtitle">Passe o mouse sobre os cards para ver dicas práticas.</p>
+
+            <div class="grid-container">
+                <div class="glass-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">💧</div>
+                            <h3>Água</h3>
+                            <p>Banhos longos, vazamentos e torneiras abertas aumentam o desperdício.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Dicas</h3>
+                            <ul>
+                                <li>Reduza o tempo do banho</li>
+                                <li>Feche a torneira</li>
+                                <li>Conserte vazamentos</li>
+                                <li>Reutilize água quando possível</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">⚡</div>
+                            <h3>Energia</h3>
+                            <p>Aparelhos em stand-by continuam consumindo energia elétrica.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Dicas</h3>
+                            <ul>
+                                <li>Use lâmpadas LED</li>
+                                <li>Desligue aparelhos</li>
+                                <li>Aproveite a luz natural</li>
+                                <li>Evite abrir a geladeira sem necessidade</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-icon">🗑️</div>
+                            <h3>Resíduos</h3>
+                            <p>Grande parte do lixo doméstico poderia ser reciclada ou reaproveitada.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3>Reciclagem</h3>
+                            <ul>
+                                <li>Papel → Azul</li>
+                                <li>Plástico → Vermelho</li>
+                                <li>Metal → Amarelo</li>
+                                <li>Vidro → Verde</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mundial" class="section">
+            <h2 class="section-title">Informações Mundiais</h2>
+            <p class="section-subtitle">O consumo exagerado não é um problema apenas local. Ele afeta o mundo inteiro, aumentando a produção de resíduos, a emissão de gases poluentes e a exploração de recursos naturais.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">2 bi+</div>
+                    <p>Mais de 2 bilhões de toneladas de resíduos sólidos urbanos são geradas no mundo todos os anos.</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">1/3</div>
+                    <p>Aproximadamente um terço dos alimentos produzidos no mundo é perdido ou desperdiçado.</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">2 bi</div>
+                    <p>Cerca de 2 bilhões de pessoas vivem em países com alto nível de estresse hídrico.</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-number">60 mi+</div>
+                    <p>O mundo gera mais de 60 milhões de toneladas de lixo eletrônico por ano.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="obsolescencia" class="dark-section">
+            <div class="ewaste-box">
+                <div class="ewaste-text">
+                    <h2>Obsolescência Eletrônica</h2>
+                    <p>A obsolescência eletrônica acontece quando aparelhos como celulares, computadores, fones e televisões se tornam ultrapassados rapidamente. Isso pode ocorrer por defeitos, falta de atualizações, dificuldade de conserto ou lançamento constante de novos modelos.</p>
+                    <p>Quando produtos são trocados antes do necessário, aumenta a quantidade de lixo eletrônico. Esse tipo de resíduo pode conter metais pesados e componentes tóxicos que prejudicam o solo, a água e a saúde humana quando descartados de forma incorreta.</p>
+                    <p>Uma alternativa é prolongar a vida útil dos equipamentos: consertar, atualizar, doar, vender ou encaminhar para pontos de coleta especializados.</p>
+                </div>
+
+                <div class="ewaste-list">
+                    <h3>Exemplos comuns</h3>
+                    <ul>
+                        <li>Celulares que param de receber atualizações.</li>
+                        <li>Baterias difíceis de substituir.</li>
+                        <li>Carregadores e entradas incompatíveis.</li>
+                        <li>Peças caras ou difíceis de encontrar.</li>
+                        <li>Propagandas que incentivam a troca constante.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Descarte Correto</h2>
+            <p class="section-subtitle">Separar corretamente os resíduos facilita a reciclagem e diminui o impacto ambiental.</p>
+
+            <div class="recycle-grid">
+                <div class="bin blue">📘 Papel</div>
+                <div class="bin red">🧴 Plástico</div>
+                <div class="bin yellow">🥫 Metal</div>
+                <div class="bin green">🍾 Vidro</div>
+                <div class="bin orange">🔋 Pilhas</div>
+                <div class="bin purple">📱 Eletrônicos</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Soluções Sustentáveis</h2>
+            <p class="section-subtitle">Pequenas mudanças de comportamento podem reduzir impactos ambientais e incentivar uma economia mais responsável.</p>
+
+            <div class="solution-grid">
+                <div class="solution-card">
+                    <h3>🔧 Reparar antes de trocar</h3>
+                    <p>Consertar um equipamento pode ser mais barato e sustentável do que comprar um novo.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>♻️ Reciclar corretamente</h3>
+                    <p>Eletrônicos, pilhas e baterias devem ser levados a pontos de coleta específicos.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>🛒 Comprar com consciência</h3>
+                    <p>Antes de comprar, pense se o produto é necessário, durável e se pode ser consertado.</p>
+                </div>
+                <div class="solution-card">
+                    <h3>🤝 Doar ou revender</h3>
+                    <p>Produtos ainda funcionais podem ajudar outras pessoas e evitar descarte desnecessário.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Calculadora de Consumo</h2>
+            <p class="section-subtitle">Teste abaixo uma estimativa simples de consumo de água no banho.</p>
+
+            <div class="calculator">
+                <label for="minutosBanho">Quantos minutos dura seu banho?</label>
+                <input type="number" id="minutosBanho" min="1" placeholder="Exemplo: 15">
+                <button onclick="calcularAgua()">Calcular consumo</button>
+                <p id="resultadoAgua"></p>
+            </div>
+        </section>
+
+        <section id="videos" class="section">
+            <h2 class="section-title">Vídeos Educativos</h2>
+            <p class="section-subtitle">Vídeos com linguagem acessível para aprofundar o tema com ciência, consumo consciente e sustentabilidade.</p>
+
+            <div class="video-grid">
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/SZUTt3FnC84"
+                        title="Pedro Loos / Ciência Todo Dia - Energia e ciência"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div>
+                        <h3>Pedro Loos / Ciência Todo Dia</h3>
+                        <p>Vídeo para ampliar a discussão sobre ciência, tecnologia, energia e impactos ambientais.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/zGA6YDzGCWo"
+                        title="Manual do Mundo - Reciclagem de eletroeletrônicos"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div>
+                        <h3>Manual do Mundo</h3>
+                        <p>Explicação prática sobre reciclagem de eletroeletrônicos e destino correto do lixo eletrônico.</p>
+                    </div>
+                </div>
+
+                <div class="video-card">
+                    <iframe
+                        src="https://www.youtube-nocookie.com/embed/0rgj79GrFYQ"
+                        title="Sustentabilidade e tecnologia - reciclagem de eletrônicos"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <div>
+                        <h3>Tecnologia e sustentabilidade</h3>
+                        <p>Conteúdo sobre crescimento do lixo eletrônico, reciclagem e responsabilidade ambiental.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="video-note">
+                Caso algum vídeo não carregue no navegador da escola, clique em “Assistir no YouTube” dentro do player ou teste com internet liberada.
+            </p>
+        </section>
+
+        <section id="checklist" class="section">
+            <h2 class="section-title">Checklist Sustentável</h2>
+            <p class="section-subtitle">Marque as atitudes que você já pratica no dia a dia.</p>
+
+            <div class="checklist-box">
+                <label class="check-item"><input type="checkbox" class="check"><span>Fecho a torneira ao escovar os dentes</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Desligo aparelhos da tomada</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Separo lixo reciclável</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Evito desperdício de água</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Uso sacolas reutilizáveis</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Penso antes de comprar algo novo</span></label>
+                <label class="check-item"><input type="checkbox" class="check"><span>Procuro consertar eletrônicos antes de trocar</span></label>
+
+                <div class="progress-area">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="progressText">0% concluído</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Fontes de Pesquisa</h2>
+            <div class="sources">
+                <p><strong>Fontes sugeridas para apresentação:</strong> Organização das Nações Unidas (ONU), Programa das Nações Unidas para o Meio Ambiente (PNUMA/UNEP), Banco Mundial, Organização das Nações Unidas para Alimentação e Agricultura (FAO), relatórios globais sobre lixo eletrônico e materiais educativos sobre reciclagem.</p>
+                <p>Observação: os dados usados são estimativas globais amplamente divulgadas e podem variar conforme o ano e a instituição pesquisada.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="modern-footer">
+        <p>Desenvolvido por <span>Leticia Sanders</span></p>
+        <p class="sub">Proz & Fundação ArcelorMittal • 2026</p>
+    </footer>
+
+    <script>
+        function calcularAgua() {
+            const minutos = Number(document.getElementById('minutosBanho').value);
+            const resultado = document.getElementById('resultadoAgua');
+
+            if (!minutos || minutos <= 0) {
+                resultado.style.display = 'block';
+                resultado.innerHTML = 'Digite uma quantidade válida de minutos.';
+                return;
+            }
+
+            const litros = minutos * 9;
+            resultado.style.display = 'block';
+            resultado.innerHTML = `Seu banho pode gastar aproximadamente <strong>${litros} litros de água</strong>. Se você reduzir 5 minutos, pode economizar cerca de <strong>${5 * 9} litros</strong> por banho.`;
+        }
+
+        const checks = document.querySelectorAll('.check');
+        const progressBar = document.getElementById('progressBar');
+        const progressText = document.getElementById('progressText');
+
+        checks.forEach(check => {
+            check.addEventListener('change', atualizarProgresso);
+        });
+
+        function atualizarProgresso() {
+            const total = checks.length;
+            const marcados = document.querySelectorAll('.check:checked').length;
+            const porcentagem = Math.round((marcados / total) * 100);
+
+            progressBar.style.width = porcentagem + '%';
+            progressText.innerText = porcentagem + '% concluído';
+        }
+    </script>
+</body>
+</html>
