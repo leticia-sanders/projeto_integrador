@@ -1245,19 +1245,25 @@
         }
 
     
-.recycle-grid-modern{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:40px}
-.recycle-card{background:rgba(255,255,255,.95);border-radius:28px;padding:28px;text-align:center;box-shadow:0 18px 40px rgba(75,22,143,.12);transition:.3s;border:1px solid rgba(234,220,255,.9)}
-.recycle-card:hover{transform:translateY(-8px)}
-.recycle-icon{font-size:3.2rem;margin-bottom:15px}
-.recycle-card h3{color:#4b168f;margin-bottom:10px}
-.recycle-card p{color:#65447e;margin-bottom:18px;line-height:1.6}
-.tag{padding:8px 14px;border-radius:999px;color:#fff;font-weight:700;font-size:.85rem}
-.timeline-box{margin-top:50px;background:white;border-radius:30px;padding:35px;box-shadow:0 18px 40px rgba(75,22,143,.12)}
-.timeline-box h3{text-align:center;color:#4b168f;margin-bottom:25px}
-.timeline{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap}
-.step{display:flex;flex-direction:column;align-items:center;font-size:2rem}
-.step span{font-size:.9rem;color:#4b168f;font-weight:700;margin-top:6px}
-.arrow{font-size:1.8rem;color:#ff7a00;font-weight:800}
+.ewaste-list{
+    padding:40px !important;
+}
+
+.ewaste-list h3{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.ewaste-list ul{
+    padding-left:30px !important;
+    margin-top:15px;
+}
+
+.ewaste-list li{
+    margin-bottom:18px;
+    line-height:1.9;
+    padding-left:8px;
+}
 
 </style>
 </head>
@@ -1425,36 +1431,19 @@
             </div>
         </section>
 
-        
-<section class="section">
-    <h2 class="section-title">Descarte Correto</h2>
-    <p class="section-subtitle">Separar corretamente os resíduos facilita a reciclagem e diminui o impacto ambiental.</p>
+        <section class="section">
+            <h2 class="section-title">Descarte Correto</h2>
+            <p class="section-subtitle">Separar corretamente os resíduos facilita a reciclagem e diminui o impacto ambiental.</p>
 
-    <div class="recycle-grid-modern">
-        <div class="recycle-card"><div class="recycle-icon">📄</div><h3>Papel</h3><p>Jornais, revistas, caixas e folhas.</p><span class="tag blue">Lixeira Azul</span></div>
-        <div class="recycle-card"><div class="recycle-icon">🧪</div><h3>Plástico</h3><p>Garrafas PET, embalagens e recipientes.</p><span class="tag red">Lixeira Vermelha</span></div>
-        <div class="recycle-card"><div class="recycle-icon">⚙️</div><h3>Metal</h3><p>Latas, alumínio e embalagens metálicas.</p><span class="tag yellow">Lixeira Amarela</span></div>
-        <div class="recycle-card"><div class="recycle-icon">🪟</div><h3>Vidro</h3><p>Garrafas, potes e recipientes de vidro.</p><span class="tag green">Lixeira Verde</span></div>
-        <div class="recycle-card"><div class="recycle-icon">🔋</div><h3>Pilhas</h3><p>Devem ser levadas para pontos de coleta.</p><span class="tag orange">Resíduo Especial</span></div>
-        <div class="recycle-card"><div class="recycle-icon">💻</div><h3>Eletrônicos</h3><p>Celulares, cabos e computadores.</p><span class="tag purple">Ecopontos</span></div>
-    </div>
-
-    <div class="timeline-box">
-        <h3>🚛 Jornada do Resíduo</h3>
-        <div class="timeline">
-            <div class="step">🛒<span>Consumo</span></div>
-            <div class="arrow">→</div>
-            <div class="step">♻️<span>Separação</span></div>
-            <div class="arrow">→</div>
-            <div class="step">🚚<span>Coleta</span></div>
-            <div class="arrow">→</div>
-            <div class="step">🏭<span>Reciclagem</span></div>
-            <div class="arrow">→</div>
-            <div class="step">✨<span>Novo Produto</span></div>
-        </div>
-    </div>
-</section>
-
+            <div class="recycle-grid">
+                <div class="bin blue">📄 Papel</div>
+                <div class="bin red">🧪 Plástico</div>
+                <div class="bin yellow">⚙️ Metal</div>
+                <div class="bin green">🪟 Vidro</div>
+                <div class="bin orange">🔋 Pilhas</div>
+                <div class="bin purple">💻 Equipamentos Eletrônicos</div>
+            </div>
+        </section>
 
         <section class="section">
             <h2 class="section-title">Soluções Sustentáveis</h2>
