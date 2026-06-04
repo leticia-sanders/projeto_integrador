@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uso Consciente e Sustentabilidade</title>
+    <title>Consumo Consciente | Projeto Integrador</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -817,12 +817,309 @@
             .forest { justify-content: center; }
         }
 
+
+        /* refinamento profissional */
+        :root {
+            --green-dark: #064e3b;
+            --green: #059669;
+            --green-light: #34d399;
+            --mint: #ecfdf5;
+            --text: #0f172a;
+            --muted: #475569;
+            --white: #ffffff;
+            --dark: #020617;
+            --soft: #f8fafc;
+            --border: #e2e8f0;
+            --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            --shadow-strong: 0 24px 70px rgba(2, 6, 23, 0.18);
+        }
+
+        body {
+            background:
+                radial-gradient(circle at top left, rgba(52, 211, 153, 0.12), transparent 34%),
+                linear-gradient(180deg, #f8fafc 0%, #eef7f1 100%);
+        }
+
+        .navbar {
+            background: rgba(2, 6, 23, 0.82);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .logo {
+            letter-spacing: -0.03em;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+        }
+
+        .hero {
+            min-height: 96vh;
+            background:
+                linear-gradient(135deg, rgba(2,6,23,0.88), rgba(6,78,59,0.76)),
+                url('https://images.unsplash.com/photo-1497436072909-f5e4be8c8e9d?q=80&w=1600') center/cover no-repeat;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -1px;
+            height: 90px;
+            background: linear-gradient(180deg, transparent, var(--soft));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: rgba(236, 253, 245, 0.12);
+            border: 1px solid rgba(167, 243, 208, 0.35);
+            color: #d1fae5;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-content h1 {
+            letter-spacing: -0.07em;
+            text-wrap: balance;
+        }
+
+        .hero-content p {
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #e2e8f0;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main,
+        .btn-secondary {
+            min-width: 190px;
+            text-align: center;
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.35);
+            color: white;
+            font-weight: 700;
+            transition: 0.3s;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.16);
+            transform: translateY(-4px);
+        }
+
+        .hero-metrics {
+            max-width: 720px;
+            margin: 38px auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .hero-metrics div {
+            padding: 18px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-metrics strong {
+            display: block;
+            font-size: 1.65rem;
+            color: #bbf7d0;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .hero-metrics span {
+            display: block;
+            color: #e5e7eb;
+            font-size: 0.88rem;
+        }
+
+        .section {
+            scroll-margin-top: 92px;
+        }
+
+        .section-title {
+            letter-spacing: -0.045em;
+            text-wrap: balance;
+        }
+
+        .section-subtitle {
+            text-wrap: balance;
+        }
+
+        .intro-box,
+        .info-card,
+        .stat-card,
+        .solution-card,
+        .calculator,
+        .checklist-box,
+        .sources,
+        .quiz-box,
+        .video-card,
+        .ewaste-list {
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .intro-box {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 7px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--green), var(--green-light));
+        }
+
+        .stat-card {
+            min-height: 210px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .stat-number {
+            letter-spacing: -0.06em;
+        }
+
+        .glass-card {
+            height: 300px;
+        }
+
+        .card-front,
+        .card-back {
+            border: 1px solid rgba(226, 232, 240, 0.9);
+        }
+
+        .dark-section {
+            background:
+                radial-gradient(circle at top right, rgba(52, 211, 153, 0.18), transparent 30%),
+                linear-gradient(135deg, #022c22, #020617);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        .ewaste-text {
+            box-shadow: 0 20px 60px rgba(0,0,0,0.16);
+        }
+
+        .bin,
+        .answer-btn,
+        .calculator button,
+        .quiz-actions button {
+            font-family: inherit;
+        }
+
+        .bin {
+            border: 1px solid rgba(255,255,255,0.22);
+        }
+
+        .video-card {
+            transition: 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .quiz-box {
+            background:
+                linear-gradient(180deg, #ffffff, #f8fafc);
+        }
+
+        .quiz-score,
+        .quiz-trees {
+            border: 1px solid #bbf7d0;
+        }
+
+        .answer-btn {
+            min-height: 76px;
+        }
+
+        .answer-btn:disabled {
+            cursor: not-allowed;
+        }
+
+        .sources {
+            font-size: 0.96rem;
+        }
+
+        .modern-footer {
+            background:
+                radial-gradient(circle at top, rgba(52, 211, 153, 0.16), transparent 30%),
+                #020617;
+        }
+
+        @media (max-width: 820px) {
+            .hero-metrics {
+                grid-template-columns: 1fr;
+                max-width: 360px;
+                margin-top: 28px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-main,
+            .btn-secondary {
+                width: min(100%, 320px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-badge {
+                font-size: 0.78rem;
+                padding: 9px 13px;
+            }
+
+            .hero-content h1 {
+                letter-spacing: -0.045em;
+            }
+
+            .hero-metrics div {
+                padding: 15px;
+            }
+        }
+
     </style>
 </head>
 
 <body>
     <nav class="navbar">
-        <a href="#" class="logo" aria-label="Ir para o início">Uso <span>Consciente</span></a>
+        <a href="#" class="logo" aria-label="Ir para o início">Consumo <span>Consciente</span></a>
 
         <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">
             <span></span>
@@ -842,9 +1139,19 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Uso Consciente</h1>
-            <p>O futuro do planeta começa nas escolhas que fazemos hoje: consumir menos, reutilizar mais e descartar corretamente.</p>
-            <a href="#intro" class="btn-main">Começar Agora</a>
+            <span class="hero-badge">Projeto Integrador • Educação Ambiental</span>
+            <h1>Consumo Consciente e Sustentabilidade</h1>
+            <p>Uma plataforma educativa sobre escolhas sustentáveis, redução de desperdícios, descarte correto e impactos da obsolescência eletrônica.</p>
+            <div class="hero-actions">
+                <a href="#intro" class="btn-main">Explorar Projeto</a>
+                <a href="#quiz" class="btn-secondary">Ir para o quiz</a>
+            </div>
+
+            <div class="hero-metrics" aria-label="Resumo do projeto">
+                <div><strong>6+</strong><span>temas abordados</span></div>
+                <div><strong>100%</strong><span>responsivo</span></div>
+                <div><strong>5</strong><span>perguntas no quiz</span></div>
+            </div>
         </div>
     </header>
 
@@ -862,7 +1169,7 @@
 
         <section class="section">
             <h2 class="section-title">Diagnóstico Ambiental</h2>
-            <p class="section-subtitle">Passe o mouse sobre os cards para ver dicas práticas.</p>
+            <p class="section-subtitle">Conheça os principais pontos de atenção no consumo diário e veja práticas simples de redução de impacto.</p>
 
             <div class="grid-container">
                 <div class="glass-card">
@@ -1072,7 +1379,7 @@
             </div>
 
             <p class="video-note">
-                Caso algum vídeo não carregue no navegador da escola, clique em “Assistir no YouTube” dentro do player ou teste com internet liberada.
+                Caso algum vídeo não carregue no navegador, clique em “Assistir no YouTube” dentro do player ou teste com internet liberada.
             </p>
         </section>
 
@@ -1099,7 +1406,7 @@
 
         <section id="quiz" class="section">
             <h2 class="section-title">Quiz Ambiental</h2>
-            <p class="section-subtitle">Responda às perguntas, ganhe pontos e plante uma árvore virtual a cada acerto.</p>
+            <p class="section-subtitle">Teste seus conhecimentos, acumule pontos e plante uma árvore virtual a cada resposta correta.</p>
 
             <div class="quiz-box">
                 <div class="quiz-top">
@@ -1314,25 +1621,6 @@
             tree.className = 'tree';
             tree.innerText = ['🌱', '🌿', '🌳'][Math.min(trees - 1, 2)] || '🌳';
             forest.appendChild(tree);
-        }
-
-        function nextQuestion() {
-            currentQuestion++;
-
-            if (currentQuestion >= quizQuestions.length) {
-                const quizQuestion = document.getElementById('quizQuestion');
-                const answersGrid = document.getElementById('answersGrid');
-                const feedback = document.getElementById('quizFeedback');
-
-                quizQuestion.innerText = 'Quiz finalizado!';
-                answersGrid.innerHTML = '';
-                feedback.style.display = 'block';
-                feedback.innerHTML = `Você fez <strong>${score} pontos</strong> e plantou <strong>${trees} árvore(s)</strong>. Continue praticando atitudes sustentáveis no dia a dia!`;
-                currentQuestion = quizQuestions.length - 1;
-                return;
-            }
-
-            loadQuestion();
         }
 
         function restartQuiz() {
