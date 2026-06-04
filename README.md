@@ -4,7 +4,7 @@ Projeto Integrador desenvolvido para promover a conscientização sobre consumo 
 
 ## 🚀 Acesse o projeto
 
-🔗 https://leticia-sanders-ux.github.io/projeto_integrador/
+🔗 [https://leticia-sanders-ux.github.io/projeto_integrador/](https://leticia-sanders.github.io/projeto_integrador/)
 
 ## 📋 Funcionalidades
 
